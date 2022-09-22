@@ -1,2 +1,3 @@
 # czadatak
-c zadatak
+
+NetBeans IDE + jdk-17

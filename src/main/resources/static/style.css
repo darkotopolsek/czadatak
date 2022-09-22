@@ -1,0 +1,39 @@
+body {
+    background-color: #333333;
+}
+h1 {
+    font-family: sans-serif;
+    color: #0099cc;
+}
+
+th {
+    font-family: sans-serif;
+    color: #3366ff;
+}
+tr {
+    font-family: sans-serif;
+    color: #3366ff;
+}
+a {
+    font-family: sans-serif;
+    color: #cc6600;
+}
+input {
+    font-family: sans-serif;
+    background-color:#333333;
+    color: #cc6600;
+}
+button {
+    background-color: #4CAF50; /* Green */
+    /*border: none;*/
+    border-color: #006633;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+table {
+    border-collapse: collapse;
+}
