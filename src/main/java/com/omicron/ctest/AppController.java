@@ -54,8 +54,9 @@ public class AppController {
         String fileName = null;
 
         if (!multipartFile.isEmpty()) {
-            fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 
+            fileName = multipartFile.getOriginalFilename();
+            
             user.setPhoto(fileName);
             savedUser = repo.save(user);
             String uploadDir = "user-photos\\" + savedUser.getId();
@@ -64,9 +65,10 @@ public class AppController {
         } else {
             if (id != 0) {
                 fileName = service.get(id).getPhotosImagePath();
+                System.out.println("in controller: " + service.get(id).getPhotosImagePath());
             }
             else {
-                fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+                fileName = multipartFile.getOriginalFilename();
             }
             //System.out.println("In Controller:" + fileName);
             user.setPhoto(fileName);
@@ -82,7 +84,8 @@ public class AppController {
 
         User user = service.get(id);
 
-        user.setPhoto(user.getPhotosImagePath());
+        user.setPhoto(user.getPhoto());
+        //user.setPhoto(user.getPhotosImagePath());
         //System.out.println(user.getPhotosImagePath());
 
         mav.addObject("user", user);
