@@ -30,18 +30,22 @@ public class UserService {
 
     public void delete(long id) throws IOException {
         String imagePath = this.get(id).getPhotosImagePath();
+        //String imagePath = this.get(id).getPhoto();
         File f = new File(imagePath);
-        //System.out.println(imagePath);
+        System.out.println("Image path: " + imagePath);
         //System.out.println("Working dir: " + System.getProperty("user.dir") + f.getParent());
-        
+
+        File delFile = null;
         String workingdir = System.getProperty("user.dir");
-        f = new File(workingdir + f.getParent());
+        delFile = new File(workingdir + "\\user-photos\\" + String.valueOf(id));
         // probably not a good idea but it's not production
-        if(!f.getPath().endsWith("photos")) {
-            FileUtils.cleanDirectory(f);
-            FileUtils.deleteDirectory(f);
+        if (!f.getPath().endsWith("photos")) {
+            if (delFile.exists()) {
+                FileUtils.cleanDirectory(delFile);
+                FileUtils.deleteDirectory(delFile);
+            }
             //System.out.println("deleting");
-        } 
+        }
         repo.deleteById(id);
     }
 }
